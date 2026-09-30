@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sweet: 'Quicksand', sans-serif;
+
+  /* Delicious Artisan Coffee & Sweet Caramel Palette */
+  --bg-dark: #090705;
+  --bg-dark-secondary: #130e0a;
+  --bg-card: rgba(24, 18, 14, 0.85);
+  --bg-card-hover: rgba(35, 26, 20, 0.95);
+  --bg-card-border: rgba(245, 158, 11, 0.18);
+
+  /* Sweet Warm Honey & Caramel Tones */
+  --sweet-honey: #fbbf24;
+  --sweet-amber: #f59e0b;
+  --sweet-caramel: #d97706;
+  --sweet-cream: #fef3c7;
+  --sweet-rose: #f472b6;
+  --sweet-vanilla: #fffbeb;
+
+  --coffee-accent: #c07a46;
+  --coffee-espresso: #1a120d;
+
+  --text-main: #fdfaf7;
+  --text-muted: #c8b9ab;
+  --text-dim: #938375;
+
+  /* Sweet Status Badges */
+  --status-vacant: #10b981;
+  --status-vacant-bg: rgba(16, 185, 129, 0.16);
+  --status-occupied: #f59e0b;
+  --status-occupied-bg: rgba(245, 158, 11, 0.16);
+  --status-bill: #a855f7;
+  --status-bill-bg: rgba(168, 85, 247, 0.16);
+  --status-reserved: #38bdf8;
+  --status-reserved-bg: rgba(56, 189, 248, 0.16);
+
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+
+  /* Glowing Sweet Shadows */
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 32px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.7);
+  --shadow-sweet: 0 10px 30px rgba(245, 158, 11, 0.25);
+  --shadow-rose: 0 10px 30px rgba(244, 114, 182, 0.25);
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 12% 18%, rgba(245, 158, 11, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(217, 119, 6, 0.10) 0%, transparent 48%),
+    radial-gradient(circle at 50% 30%, rgba(244, 114, 182, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(192, 122, 70, 0.08) 0%, transparent 45%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-size: 1.02rem;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sweet Decorative Ambient Glow */
+.sweet-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom Sweet Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0a07;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d97706 0%, #78350f 100%);
+  border-radius: 999px;
+  border: 2px solid #0d0a07;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.serif-heading {
+  font-family: var(--font-serif);
+}
+
+.sweet-heading {
+  font-family: var(--font-sweet);
+}
+
+.sweet-text-gradient {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 40%, #fbbf24 80%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sweet-caramel-gradient {
+  background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sweet Glassmorphism Cards */
+.glass-panel {
+  background: rgba(18, 13, 10, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(245, 158, 11, 0.16);
+  box-shadow: var(--shadow-md);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(28, 21, 16, 0.88), rgba(16, 12, 9, 0.96));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.16);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(254, 243, 199, 0.08);
+  border-radius: var(--radius-md);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.4), transparent);
+}
+
+.glass-card:hover {
+  border-color: rgba(251, 191, 36, 0.45);
+  transform: translateY(-5px) scale(1.008);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), var(--shadow-sweet);
+}
+
+/* Sweet Action Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: 0.5s;
+}
+
+.btn:hover::after {
+  left: 120%;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  color: #0c0805;
+  box-shadow: 0 4px 22px rgba(245, 158, 11, 0.42);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #ea580c 100%);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: linear-gradient(145deg, #271d17, #19120e);
+  color: var(--text-main);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(145deg, #36281f, #241913);
+  border-color: rgba(251, 191, 36, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-sweet-accent {
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 50%, #db2777 100%);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(244, 114, 182, 0.35);
+}
+
+.btn-sweet-accent:hover {
+  box-shadow: 0 8px 28px rgba(244, 114, 182, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: #fbbf24;
+  border: 1.5px solid #fbbf24;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(251, 191, 36, 0.16);
+  color: #fff;
+  box-shadow: 0 0 22px rgba(251, 191, 36, 0.3);
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  border-radius: 12px;
+}
+
+.btn-lg {
+  padding: 15px 32px;
+  font-size: 1.1rem;
+  border-radius: var(--radius-md);
+}
+
+/* Sweet Form Inputs */
+.input-field {
+  width: 100%;
+  padding: 13px 20px;
+  background: #0e0a07;
+  border: 1.5px solid rgba(245, 158, 11, 0.22);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-field:focus {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.22);
+  background: #140e0a;
+}
+
+/* Sweet Badge Pill System */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 15px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
+.badge-vacant {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1.5px solid rgba(16, 185, 129, 0.45);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.badge-occupied {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+.badge-bill {
+  background: rgba(168, 85, 247, 0.18);
+  color: #c084fc;
+  border: 1.5px solid rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.3);
+}
+
+.badge-reserved {
+  background: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+/* Order Status Badges */
+.badge-pending {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+.badge-preparing {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+}
+
+.badge-ready {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+
+.badge-served {
+  background: rgba(6, 182, 212, 0.2);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.45);
+}
+
+.badge-paid {
+  background: rgba(132, 204, 22, 0.2);
+  color: #a3e635;
+  border: 1px solid rgba(132, 204, 22, 0.45);
+}
+
+.badge-cancelled {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.25); }
+  50% { box-shadow: 0 0 35px rgba(245, 158, 11, 0.55); }
+}
+
+@keyframes sweetFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes sweetShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes steamRise {
+  0% { transform: translateY(0) scaleX(1); opacity: 0; }
+  25% { opacity: 0.7; }
+  50% { transform: translateY(-10px) scaleX(1.15); opacity: 0.5; }
+  100% { transform: translateY(-20px) scaleX(1.3); opacity: 0; }
+}
+
+@keyframes rippleSoft {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+.animate-float {
+  animation: sweetFloat 3.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #fef3c7 0%, #fbbf24 25%, #f59e0b 50%, #fef3c7 75%, #fbbf24 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sweetShimmer 4s linear infinite;
+}
+
+.animate-steam {
+  animation: steamRise 2.4s ease-out infinite;
+}
+
+.animate-ripple {
+  animation: rippleSoft 2s ease-in-out infinite;
+}
+
+/* Sweet Glass Card with Caramel Glow Rim */
+.glass-sweet {
+  background: linear-gradient(145deg, rgba(30, 22, 17, 0.88), rgba(18, 13, 10, 0.94));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(254, 243, 199, 0.12);
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-sweet:hover {
+  border-color: rgba(251, 191, 36, 0.55);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(245, 158, 11, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Mobile Touch & Haptic Feel */
+.touch-press {
+  transition: transform 0.15s ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+.touch-press:active {
+  transform: scale(0.96);
+}
+
+/* Mobile Safe Bottom Spacing */
+.mobile-safe-bottom {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Mobile Floating Bottom Bar */
+.mobile-nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(14, 10, 7, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.65);
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+}
+
+/* No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth Touch Snap */
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-center {
+  scroll-snap-align: center;
+}
+
+/* Thermal Printable Receipt */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-receipt, .printable-receipt * {
+    visibility: visible;
+  }
+  .printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #000 !important;
+    background: #fff !important;
+    padding: 24px;
+    font-size: 13px !important;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
